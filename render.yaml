@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: your-laravel-app
+    env: docker
+    dockerfilePath: ./Dockerfile
+    buildCommand: composer install
+    startCommand: /bin/bash -c "php-fpm -D && nginx -g 'daemon off;'"
+    envVars:
+      - key: APP_ENV
+        value: local
+      - key: APP_DEBUG
+        value: true
